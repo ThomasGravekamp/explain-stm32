@@ -42,26 +42,15 @@ enum Series {
 fn get_device_series(name: &mut String) -> Option<Series> {
     let series: String = name.chars().take(2).collect();
 
-    if series.eq("F0") {
-        return Option::Some(Series::F0)
+    match series.as_str() {
+        "F0" => Option::Some(Series::F0),
+        "F1" => Option::Some(Series::F1),
+        "F2" => Option::Some(Series::F2),
+        "F3" => Option::Some(Series::F3),
+        "F4" => Option::Some(Series::F4),
+        "F7" => Option::Some(Series::F7),
+        _ => Option::None
     }
-    else if series.eq("F1") {
-        return Option::Some(Series::F1)
-    }
-    else if series.eq("F2") {
-        return Option::Some(Series::F2)
-    }
-    else if series.eq("F3") {
-        return Option::Some(Series::F3)
-    }
-    else if series.eq("F4") {
-        return Option::Some(Series::F4)
-    }
-    else if series.eq("F7") {
-        return Option::Some(Series::F7)
-    }
-
-    Option::None
 }
 
 fn display_device_series(series: Series) {
